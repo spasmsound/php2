@@ -20,18 +20,17 @@ class Db
     public function execute($sql, $data = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($data);
         return $res;
     }
 
     public function query($sql, $class, $data = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($data);
         if (false !== $res) {
             return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         }
         return [];
     }
-
 }

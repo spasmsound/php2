@@ -10,6 +10,6 @@ class News extends Model
 
     const TABLE = 'news';
 
-    protected $article;
-    protected $text;
+    public $article;
+    public $text;
 }
