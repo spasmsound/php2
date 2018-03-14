@@ -11,11 +11,8 @@
 
 <?php
     foreach ($news as $value) { ?>
-        <a href="/php2/article.php?id=<?php echo $value->id; ?>"><?php echo $value->article; ?></a>
-           <br>
-           <?php echo $value->text; ?>
-        <br>
-        <hr>
+        <h1><?php echo $value->article; ?></h1>
+        <?php echo $value->text; ?>
     <?php } ?>
 </body>
 </html>
