@@ -10,12 +10,11 @@
 <body>
 
 <?php
-    foreach ($news as $value) { ?>
-        <a href="/php2/article.php?id=<?php echo $value->id; ?>"><?php echo $value->article; ?></a>
-           <br>
-           <?php echo $value->text; ?>
-        <br>
+    foreach ($data as $value) { ?>
+        <a href="/php2/article.php?id=<?php echo $value->id; ?>"><h1><?php echo $value->title ?></h1></a>
+            <?php echo $value->content ?>
         <hr>
-    <?php } ?>
+   <?php } ?>
+
 </body>
 </html>

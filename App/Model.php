@@ -5,13 +5,18 @@ namespace App;
 abstract class Model
 {
 
-    const TABLE = '';
+    public const TABLE = '';
+
+    public $id;
 
     public static function findAll()
     {
         $db = new Db();
+
+        $sql = 'SELECT * FROM ' . static::TABLE;
         return $db->query(
-            'SELECT * FROM ' . static::TABLE,
+            $sql,
+            [],
             static::class
         );
     }
@@ -19,15 +24,8 @@ abstract class Model
     public static function findById($id)
     {
         $db = new Db();
-        $data = [':id' => $id];
-        $sql = 'SELECT * FROM ' . static::TABLE. ' WHERE id=:id';
-        return $db->query($sql, static::class, $data);
-    }
 
-    public static function findLastNews()
-    {
-        $db = new Db();
-        $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY ID DESC LIMIT 3';
-        return $db->query($sql, static::class, []);
+        $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
+        return $db->query($sql, [':id' => $id], static::class);
     }
 }

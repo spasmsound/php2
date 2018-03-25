@@ -10,9 +10,11 @@
 <body>
 
 <?php
-    foreach ($news as $value) { ?>
-        <h1><?php echo $value->article; ?></h1>
-        <?php echo $value->text; ?>
-    <?php } ?>
+    foreach ($data as $value)
+    {
+        echo $value->content;
+    }
+?>
+
 </body>
 </html>
