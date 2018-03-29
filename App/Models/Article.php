@@ -13,7 +13,7 @@ class Article extends Model
     public $title;
     public $content;
 
-    public static function findLastNews()
+    public static function findLastArticles() // исправил имя метода с findLastNews на findLastArticles
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER bY id DESC LIMIT 3';
