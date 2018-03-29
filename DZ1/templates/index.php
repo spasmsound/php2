@@ -1,4 +1,3 @@
-<!--Убрал шаблон страницы article.php -->
 <!doctype html>
 <html lang="ru">
 <head>
@@ -9,17 +8,13 @@
     <title>Document</title>
 </head>
 <body>
+
 <?php
-
-require __DIR__ . '/autoload.php';
-
-$data = \App\Models\Article::findById($_GET['id']);
-
-    foreach ($data as $value)
-    {
-        echo $value->content;
-    }
-?>
+    foreach ($data as $value) { ?>
+        <a href="/php2/DZ1/article.php?id=<?php echo $value->id; ?>"><h1><?php echo $value->title ?></h1></a>
+            <?php echo $value->content ?>
+        <hr>
+   <?php } ?>
 
 </body>
 </html>

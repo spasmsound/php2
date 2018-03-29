@@ -8,5 +8,5 @@ var_dump($checkDb);
 $findById = \App\Models\User::findById(2);
 var_dump($findById);
 
-$findLastNews = \App\Models\Article::findLastNews();
+$findLastNews = \App\Models\Article::findLastArticles();
 var_dump($findLastNews);
