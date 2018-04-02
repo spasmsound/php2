@@ -16,7 +16,7 @@ class Db
         $this->dbh = new \PDO($this->dsn, $this->cfg['username'], $this->cfg['password']);
     }
 
-    public function query($sql, $data=[], $class)
+    public function query($sql, $class, $data=[])
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($data);

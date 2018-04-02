@@ -17,7 +17,7 @@ class Article extends Model
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER bY id DESC LIMIT 3';
-        return $db->query($sql, [], static::class);
+        return $db->query($sql, static::class, []);
     }
 
 }

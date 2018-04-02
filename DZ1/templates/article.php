@@ -9,11 +9,8 @@
 </head>
 <body>
 
-<?php
-    foreach ($data as $value) { ?>
-        <a href="/php2/DZ1/article.php?id=<?php echo $value->id; ?>"><h1><?php echo $value->title ?></h1></a>
-            <?php echo $value->content ?>
-        <hr>
-   <?php } ?>
+<h1><?php echo $article->title; ?></h1>
+<hr>
+<p><?php echo $article->content; ?></p>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
 require __DIR__ . '/../autoload.php';
 
-$data = new \App\Models\Article;
-$data->insert();
+$article = \App\Models\Article::findById(2);
+$article->delete();
