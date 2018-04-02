@@ -12,7 +12,7 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$data = \App\Models\Article::findById($_GET['id']);
+$data = \App\Models\Article::findById($_GET['id']); //
 echo $data->content;
 ?>
 
