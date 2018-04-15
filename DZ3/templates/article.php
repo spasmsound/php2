@@ -9,13 +9,9 @@
 </head>
 <body>
 
-<?php
-    foreach ($this->articles as $value) { ?>
-        <a href="/php2/DZ3/article.php?id=<?php echo $value->id; ?>"><h1><?php echo $value->title ?></h1></a>
-            <?php echo $value->content; ?>
-            <p>Автор: <?php echo $value->author->name; ?></p>
-        <hr>
-   <?php }?>
+    <h3><?php echo $this->article->title ?></h3>
+    <p><?php echo $this->article->content ?></p>
+    <h4>Автор: <?php echo $this->article->author->name ?></h4>
 
 </body>
 </html>

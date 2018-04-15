@@ -5,7 +5,7 @@ return [
         'host' => 'localhost',
         'dbname' => 'test',
         'username' => 'root',
-        'password' => 'iphone5c',
+        'password' => 'mysql',
         'charset' => 'utf8mb4',
         ]
 ];

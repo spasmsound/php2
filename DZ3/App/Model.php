@@ -2,13 +2,24 @@
 
 namespace App;
 
+/**
+ * Class Model
+ * @package App
+ */
 abstract class Model
 {
 
     public const TABLE = '';
 
+    /**
+     * @var string $id
+     */
     public $id;
 
+    /**
+     * Статичный метод findAll. Возвращает из таблицы БД все данные
+     * @return array
+     */
     public static function findAll()
     {
         $db = new Db();
@@ -21,6 +32,11 @@ abstract class Model
         );
     }
 
+    /**
+     * Метод findById. Возврващает из таблицы БД данные по конкретному id
+     * @param $id
+     * @return bool
+     */
     public static function findById($id)
     {
         $db = new Db();
@@ -33,6 +49,9 @@ abstract class Model
         return $data[0];
     }
 
+    /**
+     * Вставка данных в БД
+     */
     public function insert()
     {
         $fields = get_object_vars($this);
@@ -57,6 +76,10 @@ abstract class Model
         $this->id = $db->getLastId();// в связи с тем, что айди при выполнении скрипта не указывается (база данных добавляет его сама), используем возможность PDO этот айди нам показать
     }
 
+    /**
+     * Редактирование даных в БД
+     * @return bool
+     */
     public function update()
     {
         $fields = get_object_vars($this); //получим массив, где ключ - имя свойства, а значение - значение свойства
@@ -74,6 +97,10 @@ abstract class Model
         return $db->execute($sql, $data);
     }
 
+    /**
+     * Сохранение данных в БД
+     * @return bool|void
+     */
     public function save()
     {
         if (empty($this->id))
@@ -84,6 +111,9 @@ abstract class Model
         }
     }
 
+    /**
+     * Удаление данных из БД
+     */
     public function delete()
     {
         $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id=:id';

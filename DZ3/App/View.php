@@ -2,30 +2,45 @@
 
 namespace App;
 
-
+/**
+ * Class View
+ * @package App
+ */
 class View
 {
 
+    /**
+     * @var array
+     */
     protected $data = [];
 
-    public function __get($name) // магический метод на чтение условного свойства
+    /**
+     * Трейт MagicTrait
+     */
+    use MagicTrait;
+
+
+    /**
+     * Метод render. Подготавливает шаблон, но не отображает его
+     * @param $template
+     * @return string
+     */
+    public function render($template)
     {
-        return $this->data[$name] ?? null;
+        ob_start();
+        include $template;
+        $content = ob_get_contents();
+        ob_end_clean();
+        return $content;
     }
 
-    public function __set($name, $value) // магический метод на запись условного свойства
-    {
-        $this->data[$name] = $value;
-    }
-
-    public function __isset($name) // магический метод на проверку существования источника для условного свойства
-    {
-        return isset($this->data[$name]);
-    }
-
+    /**
+     * Метод display. Тот же render, но display выводит шаблон в поток
+     * @param $template
+     */
     public function display($template)
     {
-        include $template;
+        echo $this->render($template);
 
     }
 }

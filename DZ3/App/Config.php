@@ -2,13 +2,22 @@
 
 namespace App;
 
+/**
+ * Class Config
+ * @package App
+ */
 class Config
 {
+    /**
+     * @var mixed
+     */
     public $data;
 
+    /**
+     * Config constructor.
+     */
     public function __construct()
     {
-        $path = require __DIR__. '/../config.php';
-        $this->data = $path;
+        $this->data = require __DIR__. '/../config.php';
     }
 }
